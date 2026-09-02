@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // garis kecil abu dibagian atas yang nandain kalau itu bisa di drag
+// menandakan bisa di tarik ke atas
 class SheetDragHandle extends StatelessWidget {
   const SheetDragHandle({super.key});
 
