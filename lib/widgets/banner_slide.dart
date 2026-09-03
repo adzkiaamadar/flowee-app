@@ -18,15 +18,14 @@ class BannerSlide extends StatelessWidget {
           children: [
             //banner dipanggil dalam class PromoBanner yang isinya models promo_banner.dart -> tempat image URL
             Image.network(
-              banner.imageUrl, 
+              banner.imageUrl,
               fit: BoxFit.cover,
               // untuk mendefinisikan warna gradient ketika imagenya tidak berhasil di load
-              errorBuilder: (context, error, StackTrace) => Container(color: banner.gradientColors.first),
+              errorBuilder: (context, error, StackTrace) =>
+                  Container(color: banner.gradientColors.first),
               loadingBuilder: (context, child, progress) {
                 if (progress == null) return child;
-                return Container(
-                  color: banner.gradientColors.first,
-                );
+                return Container(color: banner.gradientColors.first);
               },
             ),
             // image network yang akan dikombinasikan dengan stack dan gradiasi, dengan sentuhan transparansi
@@ -37,10 +36,10 @@ class BannerSlide extends StatelessWidget {
                   end: Alignment.centerRight,
                   colors: [
                     banner.gradientColors.first.withValues(alpha: 0.92),
-                    banner.gradientColors.last.withValues(alpha: 0.35)
-                  ]
-                )
-              )
+                    banner.gradientColors.last.withValues(alpha: 0.35),
+                  ],
+                ),
+              ),
             ),
             Padding(
               padding: EdgeInsetsGeometry.fromLTRB(22, 20, 90, 20),
@@ -54,7 +53,7 @@ class BannerSlide extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.w800,
-                      height: 1.1
+                      height: 1.1,
                     ),
                   ),
                   Text(
@@ -64,12 +63,12 @@ class BannerSlide extends StatelessWidget {
                       color: Colors.white.withValues(alpha: 0.92),
                       fontSize: 13,
                       fontWeight: FontWeight.w500,
-                      height: 1.3
+                      height: 1.3,
                     ),
                   ),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),
