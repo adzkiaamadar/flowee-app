@@ -68,6 +68,7 @@ class _BannerCarouselState extends State<BannerCarousel> {
               // ketika user melakukan swipe manual
               // supaya titik indokator dibawah selalu sinkron dengan banner yang tampil
               // initState dipanggil otomatis di awal, sedangkan setState kamu panggil sendiri saat ada perubahan.
+              // tetapi keduanya ada karena memang dirancang untuk bekerja sama dalam mengelola lifecycle data yang berubah-ubah
               onPageChanged: (index) => setState(() => _page = index),
               itemBuilder: (context, index) => BannerSlide(banner: widget.banners[index]),
             )

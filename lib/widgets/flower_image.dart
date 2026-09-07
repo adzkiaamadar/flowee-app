@@ -4,7 +4,7 @@ class FlowerNetworkImage extends StatelessWidget {
   // menampilkan gambar dari url internet
   // sedang dimuat = menampilkan indikator loading
   // gagal dimuat = menampilkan icon
-  const FlowerNetworkImage({super.key, required this.imageUrl, required this.fallbackIcon, required this.fallbackColor, required this.fit});
+  const FlowerNetworkImage({super.key, required this.imageUrl, required this.fallbackIcon, required this.fallbackColor, this.fit = BoxFit.cover});
 
   final String imageUrl;
   final IconData fallbackIcon;
