@@ -16,7 +16,7 @@ class CategoryChipList extends StatelessWidget {
       child: ListView.separated(  // pakai ini kalau isi(action) listnya beda beda
         itemCount: categries.length,
         separatorBuilder: (_, _) => SizedBox(width: 8),
-        itemBuilder: (contex, index) {
+        itemBuilder: (context, index) {
           final category = categries [index];
           final isSelected = category == selectedCategory; // apakah dia terpilih, cek sama atau tida
           return ChoiceChip(
@@ -36,7 +36,7 @@ class CategoryChipList extends StatelessWidget {
             elevation: 0,
             pressElevation: 0,
             shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(20)),
-            
+
           );
         }, 
       ),
