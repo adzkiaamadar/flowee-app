@@ -1,7 +1,8 @@
 import 'package:flowee_app/data/dummy_data.dart';
 import 'package:flowee_app/models/flower.dart';
 import 'package:flowee_app/screens/detail_screen.dart';
-import 'package:flowee_app/widgets/home_header.dart';
+import 'package:flowee_app/widgets/flower_card.dart';
+import 'package:flowee_app/widgets/home_content_header.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -36,16 +37,43 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final flowers = _filteredFlowers;
-    return const SafeArea(
-      child: CustomScrollView(
+    return SafeArea(
+      child: CustomScrollView( // syaratnya panggil sliver 
         slivers: [
-          SliverToBoxAdapter(
-            child: HomeHeader(
-              _selectedCategory
+          SliverToBoxAdapter( // sebagai perantara widget
+            child: HomeContentHeader(
+              selectedCategory: _selectedCategory, 
+              categories: _categories, 
+              onQueryChanged: (value) => setState(() => _query = value), 
+              onCategorySelected: (value) => setState(() => _selectedCategory = value) // selected category akan mengikuti value
             ),
-          )
+          ),
+          if (flowers.isEmpty)
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Center(child: Text('Bunga Tidak Ditemukan')),
+            )
+          else
+            SliverPadding(
+              padding: EdgeInsets.fromLTRB(20, 0, 10, 100),
+              sliver: SliverGrid(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2, 
+                  mainAxisExtent: 16, 
+                  crossAxisSpacing: 16, 
+                  childAspectRatio: 0.68
+                ), 
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) => FlowerCard(
+                    flower: flowers[index], 
+                    onTap: () => _openDetail(flowers[index])
+                  ),
+                  childCount: flowers.length
+                )
+              ),
+            ),
         ],
-      )
+      ),
     );
   }
 }
