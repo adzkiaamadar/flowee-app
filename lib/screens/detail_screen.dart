@@ -40,7 +40,7 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final flower =widget.flower;
+    final flower = widget.flower;
 
     return Scaffold(
       backgroundColor: Colors.white,
