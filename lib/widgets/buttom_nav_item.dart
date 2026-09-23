@@ -26,7 +26,7 @@ class ButtomNavItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, size: 22, color: selected ? AppTheme.primary : Colors.transparent),
-            AnimatedSize(
+            AnimatedSize( //bikin label nya punya animasi dan ngga muncul tiba tiba
               duration: Duration(milliseconds: 220),
               curve: Curves.easeOut,
               child: selected 
