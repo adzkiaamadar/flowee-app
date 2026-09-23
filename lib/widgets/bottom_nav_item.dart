@@ -1,8 +1,8 @@
 import 'package:flowee_app/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
-class ButtomNavItem extends StatelessWidget {
-  const ButtomNavItem({super.key, required this.icon, required this.label, required this.selected, required this.onTap});
+class BottomNavItem extends StatelessWidget {
+  const BottomNavItem({super.key, required this.icon, required this.label, required this.selected, required this.onTap});
 
   final IconData icon;
   final String label;
