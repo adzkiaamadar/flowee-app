@@ -1,4 +1,5 @@
 import 'package:flowee_app/data/dummy_data.dart';
+import 'package:flowee_app/screens/login_screen.dart';
 import 'package:flowee_app/state/auth_controller.dart';
 import 'package:flowee_app/theme/app_theme.dart';
 import 'package:flowee_app/widgets/sheet_drag_handle.dart';
@@ -26,7 +27,7 @@ class _ProfileSheetContent extends StatelessWidget {
     // membuat perkondisian
     if (!homeContext.mounted) { // jika homescreen sudah tidak siap..
       Navigator.of(homeContext).pushAndRemoveUntil( // menghapus session yang lama
-        MaterialPageRoute(builder: (_) => Placeholder()), // arahkan navigasi ke login screen
+        MaterialPageRoute(builder: (_) => LoginScreen()), // arahkan navigasi ke login screen
         /**
          * Predicate ini bilang: "hapus SEMUA halaman sebelumnya dari riwayat navigasi"
          * berfungsi untuk menghapus semua session sebelumnya ketika user logout
